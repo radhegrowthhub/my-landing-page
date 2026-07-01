@@ -1,687 +1,525 @@
 <!DOCTYPE html>
 <html lang="hi">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>TREAD WITH RADHESHAYAM™ — Free Trading Calls</title>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@300;400;500;600&family=Tiro+Devanagari+Hindi&display=swap" rel="stylesheet" />
-  <!-- Meta Pixel Code -->
-  <script>
-    !function(f,b,e,v,n,t,s)
-    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-    n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e)[0];
-    s.parentNode.insertBefore(t,s)}(window, document,'script',
-    'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '1867053120630294');
-    fbq('track', 'PageView');
-  </script>
-  <noscript>
-    <img height="1" width="1" style="display:none"
-    src="https://www.facebook.com/tr?id=1867053120630294&ev=PageView&noscript=1"/>
-  </noscript>
-  <!-- End Meta Pixel Code -->
-  <style>
-    :root {
-      --gold:    #D4AF37;
-      --gold-lt: #F5E27A;
-      --deep:    #0A0E1A;
-      --navy:    #0D1B2A;
-      --card:    #111827;
-      --green:   #22C55E;
-      --red:     #EF4444;
-      --text:    #E8EAF0;
-      --muted:   #8A90A0;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Retailers ka Bazaar — WhatsApp Community</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#1B1F3B;
+    --ink-2:#252b52;
+    --marigold:#FF8A00;
+    --marigold-light:#FFB454;
+    --cream:#FFF8ED;
+    --leaf:#1FAA59;
+    --bazaar-red:#E63946;
+    --slate:#8C93B8;
+    --line: rgba(255,248,237,0.14);
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--ink);
+    color:var(--cream);
+    font-family:'Inter', sans-serif;
+    overflow-x:hidden;
+  }
+  .mono{font-family:'JetBrains Mono', monospace;}
+  .display{font-family:'Baloo 2', sans-serif;}
 
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  a{color:inherit;}
+  .wrap{max-width:1080px; margin:0 auto; padding:0 24px;}
 
-    html { scroll-behavior: smooth; }
+  /* ---- Torn tag texture background ---- */
+  .bg-noise{
+    position:fixed; inset:0; pointer-events:none; opacity:0.05; z-index:0;
+    background-image: radial-gradient(circle at 1px 1px, #fff 1px, transparent 0);
+    background-size: 22px 22px;
+  }
 
-    body {
-      background: var(--deep);
-      color: var(--text);
-      font-family: 'Inter', sans-serif;
-      line-height: 1.6;
-      overflow-x: hidden;
-    }
+  /* ---- Top marquee ---- */
+  .ticker{
+    background:var(--marigold);
+    color:var(--ink);
+    overflow:hidden;
+    white-space:nowrap;
+    padding:8px 0;
+    position:relative;
+    z-index:5;
+  }
+  .ticker-track{
+    display:inline-block;
+    padding-left:100%;
+    animation: scroll-left 26s linear infinite;
+    font-family:'JetBrains Mono', monospace;
+    font-weight:700;
+    font-size:13px;
+    letter-spacing:0.5px;
+  }
+  .ticker-track span{margin-right:48px;}
+  @keyframes scroll-left{
+    0%{transform:translateX(0);}
+    100%{transform:translateX(-100%);}
+  }
 
-    /* ── TICKER ── */
-    .ticker-wrap {
-      background: var(--gold);
-      color: #000;
-      padding: 7px 0;
-      overflow: hidden;
-      white-space: nowrap;
-    }
-    .ticker-inner {
-      display: inline-block;
-      animation: ticker 28s linear infinite;
-      font-size: 13px;
-      font-weight: 600;
-      letter-spacing: .04em;
-    }
-    @keyframes ticker { from { transform: translateX(100vw); } to { transform: translateX(-100%); } }
+  /* ---- Header ---- */
+  header{
+    position:relative; z-index:5;
+    padding:22px 0;
+    display:flex; align-items:center; justify-content:space-between;
+  }
+  .logo{
+    display:flex; align-items:center; gap:10px;
+    font-family:'Baloo 2', sans-serif;
+    font-weight:700;
+    font-size:20px;
+  }
+  .logo-mark{
+    width:34px; height:34px; border-radius:8px;
+    background:var(--leaf);
+    display:flex; align-items:center; justify-content:center;
+    font-size:18px;
+    transform:rotate(-6deg);
+  }
+  .header-btn{
+    background:transparent;
+    border:1.5px solid var(--line);
+    color:var(--cream);
+    padding:9px 18px;
+    border-radius:100px;
+    font-size:13px;
+    font-weight:600;
+    text-decoration:none;
+    transition:border-color .2s ease, background .2s ease;
+  }
+  .header-btn:hover{border-color:var(--marigold); background:rgba(255,138,0,0.08);}
 
-    /* ── NAV ── */
-    nav {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 18px 40px;
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      background: rgba(10,14,26,.92);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid rgba(212,175,55,.18);
-    }
-    .nav-logo {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-    .nav-logo img {
-      width: 44px;
-      height: 44px;
-      border-radius: 50%;
-      border: 2px solid var(--gold);
-      object-fit: cover;
-    }
-    .nav-logo span {
-      font-family: 'Playfair Display', serif;
-      font-size: 17px;
-      font-weight: 700;
-      color: var(--gold);
-      letter-spacing: .02em;
-    }
-    .nav-cta {
-      background: var(--gold);
-      color: #000;
-      font-weight: 700;
-      font-size: 14px;
-      padding: 10px 22px;
-      border-radius: 6px;
-      text-decoration: none;
-      transition: opacity .2s;
-    }
-    .nav-cta:hover { opacity: .88; }
+  /* ---- Hero ---- */
+  .hero{
+    position:relative; z-index:2;
+    padding:64px 0 40px;
+    display:grid;
+    grid-template-columns:1.1fr 0.9fr;
+    gap:48px;
+    align-items:center;
+  }
+  .eyebrow{
+    display:inline-flex; align-items:center; gap:8px;
+    font-family:'JetBrains Mono', monospace;
+    font-size:12px; font-weight:700;
+    letter-spacing:1.5px; text-transform:uppercase;
+    color:var(--marigold-light);
+    background:rgba(255,138,0,0.1);
+    border:1px solid rgba(255,138,0,0.3);
+    padding:6px 14px; border-radius:100px;
+    margin-bottom:20px;
+  }
+  .eyebrow .dot{width:7px; height:7px; border-radius:50%; background:var(--leaf); animation:pulse 1.6s infinite;}
+  @keyframes pulse{0%,100%{opacity:1;} 50%{opacity:0.3;}}
 
-    /* ── HERO ── */
-    .hero {
-      position: relative;
-      min-height: 92vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 80px 24px 60px;
-      overflow: hidden;
-    }
-    .hero-bg {
-      position: absolute;
-      inset: 0;
-      background:
-        radial-gradient(ellipse 80% 60% at 50% 30%, rgba(212,175,55,.13) 0%, transparent 70%),
-        radial-gradient(ellipse 50% 40% at 80% 80%, rgba(34,197,94,.06) 0%, transparent 60%);
-    }
-    /* animated chart lines */
-    .hero-bg::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background-image:
-        repeating-linear-gradient(90deg, rgba(212,175,55,.04) 0px, transparent 1px, transparent 80px),
-        repeating-linear-gradient(0deg, rgba(212,175,55,.04) 0px, transparent 1px, transparent 60px);
-    }
+  h1{
+    font-family:'Baloo 2', sans-serif;
+    font-weight:800;
+    font-size:clamp(36px, 5.2vw, 60px);
+    line-height:1.06;
+    letter-spacing:-0.5px;
+  }
+  h1 .hl{color:var(--marigold);}
+  h1 .hl2{color:var(--leaf);}
 
-    .hero-content { position: relative; max-width: 720px; }
+  .hero p.sub{
+    margin-top:22px;
+    font-size:17px;
+    line-height:1.65;
+    color:var(--slate);
+    max-width:480px;
+  }
 
-    .hero-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: rgba(212,175,55,.12);
-      border: 1px solid rgba(212,175,55,.35);
-      color: var(--gold);
-      font-size: 12px;
-      font-weight: 600;
-      letter-spacing: .08em;
-      text-transform: uppercase;
-      padding: 6px 16px;
-      border-radius: 99px;
-      margin-bottom: 28px;
-    }
-    .dot-live {
-      width: 8px; height: 8px;
-      background: var(--green);
-      border-radius: 50%;
-      animation: pulse 1.6s ease-in-out infinite;
-    }
-    @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.5;transform:scale(1.4)} }
+  .cta-row{
+    margin-top:32px;
+    display:flex;
+    align-items:center;
+    gap:18px;
+    flex-wrap:wrap;
+  }
+  .cta-btn{
+    display:inline-flex; align-items:center; gap:10px;
+    background:var(--leaf);
+    color:#fff;
+    font-weight:700;
+    font-size:16px;
+    padding:16px 28px;
+    border-radius:100px;
+    text-decoration:none;
+    box-shadow:0 10px 30px rgba(31,170,89,0.35);
+    transition:transform .18s ease, box-shadow .18s ease;
+    position:relative;
+  }
+  .cta-btn:hover{transform:translateY(-2px); box-shadow:0 14px 36px rgba(31,170,89,0.45);}
+  .cta-note{font-size:13px; color:var(--slate);}
+  .cta-note b{color:var(--cream);}
 
-    .hero-avatar {
-      width: 110px;
-      height: 110px;
-      border-radius: 50%;
-      border: 3px solid var(--gold);
-      box-shadow: 0 0 40px rgba(212,175,55,.35);
-      margin: 0 auto 28px;
-      display: block;
-      object-fit: cover;
-    }
+  .hero-stats{
+    display:flex; gap:28px; margin-top:38px;
+    flex-wrap:wrap;
+  }
+  .stat b{
+    display:block;
+    font-family:'JetBrains Mono', monospace;
+    font-size:24px;
+    font-weight:700;
+    color:var(--cream);
+  }
+  .stat span{font-size:12px; color:var(--slate); text-transform:uppercase; letter-spacing:0.5px;}
 
-    .hero h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(32px, 6vw, 62px);
-      font-weight: 900;
-      line-height: 1.08;
-      color: #fff;
-      margin-bottom: 10px;
-    }
-    .hero h1 span { color: var(--gold); }
+  /* ---- Phone mockup: signature element ---- */
+  .phone{
+    background:#0e1128;
+    border:8px solid #2a2f56;
+    border-radius:34px;
+    width:100%;
+    max-width:320px;
+    margin:0 auto;
+    box-shadow:0 30px 70px rgba(0,0,0,0.5);
+    overflow:hidden;
+    position:relative;
+  }
+  .phone-notch{
+    height:22px; background:#2a2f56;
+    display:flex; align-items:center; justify-content:center;
+  }
+  .phone-notch::before{content:''; width:60px; height:8px; background:#0e1128; border-radius:6px;}
+  .phone-head{
+    background:var(--leaf);
+    padding:12px 16px;
+    display:flex; align-items:center; gap:10px;
+  }
+  .phone-head .av{width:34px; height:34px; border-radius:50%; background:var(--marigold); display:flex; align-items:center; justify-content:center; font-size:16px;}
+  .phone-head .meta b{display:block; font-size:14px; color:#fff; font-family:'Baloo 2',sans-serif;}
+  .phone-head .meta span{font-size:11px; color:rgba(255,255,255,0.85);}
+  .phone-body{
+    background:#0b0e24;
+    padding:14px;
+    height:360px;
+    overflow:hidden;
+    position:relative;
+    display:flex; flex-direction:column; gap:10px;
+  }
+  .phone-body::after{
+    content:''; position:absolute; inset:0;
+    background:linear-gradient(180deg, transparent 70%, #0b0e24 100%);
+    pointer-events:none;
+  }
+  .bubble{
+    background:#1c2044;
+    border-radius:12px;
+    padding:10px 12px;
+    max-width:86%;
+    align-self:flex-start;
+    font-size:12.5px;
+    line-height:1.5;
+    animation: rise 0.6s ease both;
+  }
+  .bubble.me{align-self:flex-end; background:#1FAA59;}
+  .bubble b{color:var(--marigold-light);}
+  .bubble.me b{color:#0e2c1a;}
+  .bubble .tag{
+    display:inline-block; margin-top:5px;
+    font-family:'JetBrains Mono', monospace;
+    font-size:10.5px; font-weight:700;
+    background:rgba(255,138,0,0.18);
+    color:var(--marigold-light);
+    padding:2px 7px; border-radius:5px;
+  }
+  @keyframes rise{from{opacity:0; transform:translateY(8px);} to{opacity:1; transform:translateY(0);}}
 
-    .hero-hindi {
-      font-family: 'Tiro Devanagari Hindi', serif;
-      font-size: 20px;
-      color: var(--gold-lt);
-      margin: 14px 0 22px;
-      opacity: .9;
-    }
+  /* ---- Section shared ---- */
+  section{position:relative; z-index:2; padding:70px 0;}
+  .section-head{max-width:560px; margin-bottom:40px;}
+  .kicker{
+    font-family:'JetBrains Mono', monospace;
+    font-size:12px; font-weight:700; letter-spacing:1.5px; text-transform:uppercase;
+    color:var(--leaf); margin-bottom:10px; display:block;
+  }
+  h2{font-family:'Baloo 2', sans-serif; font-weight:700; font-size:clamp(26px,3.4vw,36px); line-height:1.15;}
+  .section-head p{color:var(--slate); margin-top:12px; font-size:15.5px; line-height:1.6;}
 
-    .hero p {
-      font-size: 17px;
-      color: var(--muted);
-      max-width: 520px;
-      margin: 0 auto 36px;
-    }
+  /* ---- Feature "price tag" cards ---- */
+  .grid{display:grid; grid-template-columns:repeat(3,1fr); gap:18px;}
+  .card{
+    background:var(--ink-2);
+    border:1px solid var(--line);
+    border-radius:16px;
+    padding:24px;
+    position:relative;
+    transition:transform .2s ease, border-color .2s ease;
+  }
+  .card:hover{transform:translateY(-4px); border-color:rgba(255,138,0,0.4);}
+  .card .icon{
+    width:44px; height:44px; border-radius:10px;
+    display:flex; align-items:center; justify-content:center;
+    font-size:20px; margin-bottom:16px;
+  }
+  .card:nth-child(1) .icon{background:rgba(255,138,0,0.15);}
+  .card:nth-child(2) .icon{background:rgba(31,170,89,0.15);}
+  .card:nth-child(3) .icon{background:rgba(230,57,70,0.15);}
+  .card:nth-child(4) .icon{background:rgba(255,138,0,0.15);}
+  .card:nth-child(5) .icon{background:rgba(31,170,89,0.15);}
+  .card:nth-child(6) .icon{background:rgba(230,57,70,0.15);}
+  .card h3{font-family:'Baloo 2', sans-serif; font-size:18px; margin-bottom:8px;}
+  .card p{font-size:13.5px; color:var(--slate); line-height:1.6;}
+  .price-corner{
+    position:absolute; top:-1px; right:16px;
+    background:var(--marigold);
+    color:var(--ink);
+    font-family:'JetBrains Mono', monospace;
+    font-weight:700; font-size:10.5px;
+    padding:4px 9px;
+    border-radius:0 0 6px 6px;
+  }
 
-    .hero-btns {
-      display: flex;
-      gap: 14px;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
-    .btn-primary {
-      background: var(--gold);
-      color: #000;
-      font-weight: 700;
-      font-size: 16px;
-      padding: 15px 34px;
-      border-radius: 8px;
-      text-decoration: none;
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      transition: transform .2s, box-shadow .2s;
-      box-shadow: 0 4px 24px rgba(212,175,55,.35);
-    }
-    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 32px rgba(212,175,55,.5); }
-    .btn-secondary {
-      background: transparent;
-      color: var(--gold);
-      font-weight: 600;
-      font-size: 16px;
-      padding: 14px 30px;
-      border-radius: 8px;
-      text-decoration: none;
-      border: 1.5px solid rgba(212,175,55,.5);
-      transition: border-color .2s, background .2s;
-    }
-    .btn-secondary:hover { border-color: var(--gold); background: rgba(212,175,55,.07); }
+  /* ---- Testimonial chat bubbles ---- */
+  .testi-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:18px;}
+  .testi{
+    background:var(--ink-2);
+    border:1px solid var(--line);
+    border-radius:16px 16px 16px 4px;
+    padding:20px;
+  }
+  .testi p{font-size:14px; line-height:1.65; color:var(--cream); margin-bottom:14px;}
+  .testi-who{display:flex; align-items:center; gap:10px;}
+  .testi-who .av{width:32px; height:32px; border-radius:50%; background:var(--marigold); font-size:14px; display:flex; align-items:center; justify-content:center;}
+  .testi-who b{display:block; font-size:13px;}
+  .testi-who span{font-size:11.5px; color:var(--slate);}
 
-    /* ── STATS STRIP ── */
-    .stats {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 0;
-      background: var(--card);
-      border-top: 1px solid rgba(212,175,55,.12);
-      border-bottom: 1px solid rgba(212,175,55,.12);
-    }
-    .stat {
-      flex: 1;
-      min-width: 160px;
-      padding: 28px 24px;
-      text-align: center;
-      border-right: 1px solid rgba(212,175,55,.1);
-    }
-    .stat:last-child { border-right: none; }
-    .stat-num {
-      font-family: 'Playfair Display', serif;
-      font-size: 36px;
-      font-weight: 900;
-      color: var(--gold);
-      line-height: 1;
-    }
-    .stat-label {
-      font-size: 12px;
-      color: var(--muted);
-      text-transform: uppercase;
-      letter-spacing: .06em;
-      margin-top: 6px;
-    }
+  /* ---- Stats bar ---- */
+  .statbar{
+    display:grid; grid-template-columns:repeat(4,1fr);
+    border-top:1px solid var(--line); border-bottom:1px solid var(--line);
+    padding:36px 0;
+  }
+  .statbar .s{text-align:center; border-right:1px solid var(--line);}
+  .statbar .s:last-child{border-right:none;}
+  .statbar b{display:block; font-family:'JetBrains Mono', monospace; font-size:30px; color:var(--marigold-light);}
+  .statbar span{font-size:12px; color:var(--slate); text-transform:uppercase; letter-spacing:0.5px;}
 
-    /* ── FEATURES ── */
-    section { padding: 80px 24px; }
+  /* ---- Final CTA ---- */
+  .final-cta{
+    text-align:center;
+    background:linear-gradient(180deg, var(--ink-2), var(--ink));
+    border-radius:24px;
+    padding:60px 32px;
+    border:1px solid var(--line);
+    position:relative;
+    overflow:hidden;
+  }
+  .final-cta::before{
+    content:'';
+    position:absolute; width:400px; height:400px; border-radius:50%;
+    background:radial-gradient(circle, rgba(31,170,89,0.25), transparent 70%);
+    top:-180px; left:50%; transform:translateX(-50%);
+  }
+  .final-cta h2{position:relative;}
+  .final-cta p{position:relative; color:var(--slate); margin:14px 0 30px; max-width:440px; margin-left:auto; margin-right:auto;}
+  .final-cta .cta-btn{position:relative; font-size:18px; padding:18px 36px;}
 
-    .section-label {
-      text-align: center;
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: .14em;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 14px;
-    }
-    .section-title {
-      text-align: center;
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(26px, 4vw, 42px);
-      font-weight: 800;
-      color: #fff;
-      margin-bottom: 14px;
-      line-height: 1.15;
-    }
-    .section-sub {
-      text-align: center;
-      color: var(--muted);
-      font-size: 16px;
-      max-width: 520px;
-      margin: 0 auto 56px;
-    }
+  footer{
+    position:relative; z-index:2;
+    padding:30px 0 40px;
+    text-align:center;
+    color:var(--slate);
+    font-size:12.5px;
+    border-top:1px solid var(--line);
+  }
 
-    .features-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 20px;
-      max-width: 1000px;
-      margin: 0 auto;
-    }
-    .feature-card {
-      background: var(--card);
-      border: 1px solid rgba(212,175,55,.12);
-      border-radius: 14px;
-      padding: 30px 26px;
-      transition: border-color .25s, transform .25s;
-    }
-    .feature-card:hover {
-      border-color: rgba(212,175,55,.45);
-      transform: translateY(-4px);
-    }
-    .feature-icon {
-      font-size: 34px;
-      margin-bottom: 16px;
-    }
-    .feature-card h3 {
-      font-family: 'Playfair Display', serif;
-      font-size: 20px;
-      font-weight: 700;
-      color: #fff;
-      margin-bottom: 10px;
-    }
-    .feature-card p {
-      font-size: 14px;
-      color: var(--muted);
-      line-height: 1.65;
-    }
+  @media (max-width:860px){
+    .hero{grid-template-columns:1fr; padding-top:40px;}
+    .grid, .testi-grid{grid-template-columns:1fr;}
+    .statbar{grid-template-columns:repeat(2,1fr); row-gap:24px;}
+    .statbar .s:nth-child(2){border-right:none;}
+    .statbar .s:nth-child(3){border-top:1px solid var(--line); padding-top:24px;}
+    .statbar .s:nth-child(4){border-top:1px solid var(--line); padding-top:24px;}
+  }
 
-    /* ── MARKETS ── */
-    .markets-section { background: var(--navy); }
-    .markets-grid {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 14px;
-      justify-content: center;
-      max-width: 700px;
-      margin: 0 auto;
-    }
-    .market-chip {
-      background: rgba(212,175,55,.1);
-      border: 1px solid rgba(212,175,55,.3);
-      color: var(--gold);
-      font-weight: 600;
-      font-size: 15px;
-      padding: 12px 26px;
-      border-radius: 99px;
-      letter-spacing: .02em;
-    }
+  @media (prefers-reduced-motion: reduce){
+    *{animation:none !important; transition:none !important;}
+  }
 
-    /* ── TESTIMONIAL / TRUST ── */
-    .trust-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 20px;
-      justify-content: center;
-      max-width: 900px;
-      margin: 0 auto;
-    }
-    .trust-card {
-      background: var(--card);
-      border: 1px solid rgba(212,175,55,.1);
-      border-radius: 14px;
-      padding: 28px 28px 24px;
-      max-width: 280px;
-      flex: 1;
-      min-width: 220px;
-    }
-    .stars { color: var(--gold); font-size: 18px; margin-bottom: 12px; }
-    .trust-card p { font-size: 14px; color: var(--muted); line-height: 1.7; margin-bottom: 16px; }
-    .trust-name { font-weight: 600; font-size: 13px; color: var(--text); }
-
-    /* ── SEBI BADGE ── */
-    .sebi-banner {
-      background: linear-gradient(135deg, rgba(34,197,94,.08) 0%, rgba(212,175,55,.08) 100%);
-      border: 1px solid rgba(34,197,94,.25);
-      border-radius: 14px;
-      max-width: 680px;
-      margin: 0 auto;
-      padding: 34px 36px;
-      display: flex;
-      align-items: center;
-      gap: 24px;
-      flex-wrap: wrap;
-    }
-    .sebi-icon { font-size: 48px; }
-    .sebi-text h3 {
-      font-family: 'Playfair Display', serif;
-      font-size: 22px;
-      color: #fff;
-      margin-bottom: 6px;
-    }
-    .sebi-text p { font-size: 14px; color: var(--muted); }
-
-    /* ── CTA BOTTOM ── */
-    .cta-section {
-      background: linear-gradient(160deg, rgba(212,175,55,.12) 0%, transparent 60%);
-      border-top: 1px solid rgba(212,175,55,.12);
-      text-align: center;
-      padding: 90px 24px;
-    }
-    .cta-section h2 {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(28px, 5vw, 50px);
-      font-weight: 900;
-      color: #fff;
-      margin-bottom: 18px;
-      line-height: 1.12;
-    }
-    .cta-section h2 span { color: var(--gold); }
-    .cta-section p { color: var(--muted); font-size: 16px; margin-bottom: 36px; }
-
-    /* ── FOOTER ── */
-    footer {
-      background: var(--card);
-      text-align: center;
-      padding: 28px 24px;
-      font-size: 13px;
-      color: var(--muted);
-      border-top: 1px solid rgba(212,175,55,.1);
-    }
-    footer a { color: var(--gold); text-decoration: none; }
-
-    /* ── LIVE CALL TICKER ── */
-    .live-calls {
-      background: var(--navy);
-      padding: 60px 24px;
-    }
-    .calls-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 16px;
-      max-width: 900px;
-      margin: 0 auto;
-    }
-    .call-card {
-      background: var(--card);
-      border-radius: 12px;
-      padding: 20px 18px;
-      border-left: 4px solid var(--green);
-    }
-    .call-card.loss { border-left-color: var(--red); }
-    .call-instrument { font-size: 16px; font-weight: 700; color: #fff; margin-bottom: 4px; }
-    .call-direction {
-      font-size: 12px;
-      font-weight: 700;
-      letter-spacing: .06em;
-      text-transform: uppercase;
-      color: var(--green);
-      margin-bottom: 8px;
-    }
-    .call-card.loss .call-direction { color: var(--red); }
-    .call-return {
-      font-family: 'Playfair Display', serif;
-      font-size: 26px;
-      font-weight: 800;
-      color: var(--green);
-    }
-    .call-card.loss .call-return { color: var(--red); }
-    .call-meta { font-size: 12px; color: var(--muted); margin-top: 4px; }
-
-    @media (max-width: 600px) {
-      nav { padding: 14px 18px; }
-      .stat { min-width: 130px; }
-      .sebi-banner { padding: 24px 20px; }
-    }
-  </style>
+  :focus-visible{outline:2px solid var(--marigold); outline-offset:3px;}
+</style>
 </head>
 <body>
 
-<!-- LIVE TICKER -->
-<div class="ticker-wrap">
-  <div class="ticker-inner">
-    📈 NIFTY: 24,850 (+0.82%) &nbsp;|&nbsp; 📊 BANK NIFTY: 53,200 (+1.1%) &nbsp;|&nbsp; 🥇 GOLD MCX: 72,450 (+0.45%) &nbsp;|&nbsp; 🛢️ CRUDE: 6,210 (+0.6%) &nbsp;|&nbsp; 🔔 FREE CALLS DAILY — JOIN NOW &nbsp;|&nbsp; 📈 NIFTY: 24,850 (+0.82%) &nbsp;|&nbsp; 📊 BANK NIFTY: 53,200 (+1.1%) &nbsp;|&nbsp; 🥇 GOLD MCX: 72,450 (+0.45%)
+<div class="bg-noise"></div>
+
+<div class="ticker">
+  <div class="ticker-track">
+    <span>🚀 Live Proof: Shopmingo.in — apna hi chalta hua store</span>
+    <span>📦 Delivery partner integration humari taraf se</span>
+    <span>🛠️ Store se lekar checkout tak — sab setup hum karte hain</span>
+    <span>💬 Client stores WhatsApp pe hi track karo</span>
+    <span>🚀 Live Proof: Shopmingo.in — apna hi chalta hua store</span>
+    <span>📦 Delivery partner integration humari taraf se</span>
+    <span>🛠️ Store se lekar checkout tak — sab setup hum karte hain</span>
+    <span>💬 Client stores WhatsApp pe hi track karo</span>
   </div>
 </div>
 
-<!-- NAV -->
-<nav>
-  <div class="nav-logo">
-    <!-- Channel logo placeholder — using the bull/trader icon style from the channel -->
-    <svg width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg" style="border-radius:50%;border:2px solid #D4AF37;background:#111827">
-      <text x="50%" y="58%" dominant-baseline="middle" text-anchor="middle" font-size="22">🐂</text>
-    </svg>
-    <span>TREAD WITH RADHESHAYAM™</span>
-  </div>
-  <a href="https://t.me/+W5Zfcvb5ud03MzVl" class="nav-cta" target="_blank">Join Free →</a>
-</nav>
+<div class="wrap">
+  <header>
+    <div class="logo">
+      <div class="logo-mark">🚀</div>
+      Dropship Setup Pro
+    </div>
+    <a class="header-btn" href="https://chat.whatsapp.com/KBE1necLymIKDOo41Z1j7y" target="_blank" rel="noopener">Community Join Karein</a>
+  </header>
 
-<!-- HERO -->
-<section class="hero">
-  <div class="hero-bg"></div>
-  <div class="hero-content">
-    <div class="hero-badge">
-      <span class="dot-live"></span>
-      SEBI Registered Experts • Free Daily Calls
+  <section class="hero" style="padding-bottom:0;">
+    <div>
+      <div class="eyebrow"><span class="dot"></span> Done-For-You Dropshipping Setup</div>
+      <h1>Apna <span class="hl">online store</span> ready, delivery partner <span class="hl2">integrated</span> — sab kuch hum karke denge.</h1>
+      <p class="sub">Store banane se lekar delivery partner integration tak — poora dropshipping business setup hum khud karte hain. Aapko sirf orders aur profit dekhna hai. Live proof? Humara apna store <b style="color:var(--cream)">Shopmingo.in</b>, jisse hum khud 6-figure profit run kar rahe hain.</p>
+
+      <div class="cta-row">
+        <a class="cta-btn" href="https://chat.whatsapp.com/KBE1necLymIKDOo41Z1j7y" target="_blank" rel="noopener">
+          <span>💬</span> WhatsApp Community Join Karein
+        </a>
+        <div class="cta-note">Setup + <b>Delivery Partner</b> · Sab included</div>
+      </div>
+
+      <div class="hero-stats">
+        <div class="stat"><b>6-Figure</b><span>Monthly Profit (Shopmingo.in)</span></div>
+        <div class="stat"><b>100%</b><span>Done-For-You Setup</span></div>
+        <div class="stat"><b>1</b><span>Integrated Delivery Partner</span></div>
+      </div>
     </div>
 
-    <!-- Channel avatar — stylised bull trader icon -->
-    <div style="width:110px;height:110px;border-radius:50%;border:3px solid #D4AF37;box-shadow:0 0 40px rgba(212,175,55,.35);margin:0 auto 28px;display:flex;align-items:center;justify-content:center;background:#111827;font-size:56px;">🐂</div>
+    <div class="phone">
+      <div class="phone-notch"></div>
+      <div class="phone-head">
+        <div class="av">🚀</div>
+        <div class="meta"><b>Dropship Setup Pro</b><span>Store live · delivery partner active</span></div>
+      </div>
+      <div class="phone-body">
+        <div class="bubble"><b>Setup Team</b><br>Aapka store ready hai, product listing ho gayi.<span class="tag">Store Live</span></div>
+        <div class="bubble me"><b>Aap</b><br>Delivery partner kab tak connect hoga?</div>
+        <div class="bubble"><b>Setup Team</b><br>Delivery partner integrate ho gaya, order tracking on hai.<span class="tag">Integrated</span></div>
+        <div class="bubble"><b>Shopmingo.in</b><br>New order received — payment confirmed ✅<span class="tag">Live Sale</span></div>
+        <div class="bubble me"><b>Aap</b><br>Mast, ab agla product batch add karo</div>
+      </div>
+    </div>
+  </section>
+</div>
 
-    <h1>TREAD WITH<br><span>RADHESHAYAM™</span></h1>
-    <p class="hero-hindi">"हम नहीं हमारे परिणाम बोलते हैं"</p>
-    <p>India's trusted FREE trading signals channel — Nifty, Bank Nifty, Commodities & Equities, every market day.</p>
+<div class="wrap">
+  <div class="statbar">
+    <div class="s"><b>6-Fig</b><span>Shopmingo.in Monthly Profit</span></div>
+    <div class="s"><b>End-to-End</b><span>Store + Delivery Setup</span></div>
+    <div class="s"><b>0</b><span>Technical Kaam Aapka</span></div>
+    <div class="s"><b>1:1</b><span>WhatsApp Support</span></div>
+  </div>
+</div>
 
-    <div class="hero-btns">
-      <a href="https://t.me/+W5Zfcvb5ud03MzVl" class="btn-primary" target="_blank">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12L8.32 13.617l-2.96-.924c-.643-.204-.657-.643.136-.953l11.57-4.461c.537-.194 1.006.131.828.942z"/></svg>
-        Telegram पर Join करें
+<div class="wrap">
+  <section>
+    <div class="section-head">
+      <span class="kicker">Kya Setup Karte Hain</span>
+      <h2>Store se lekar delivery tak, sab hum karte hain</h2>
+      <p>Aapko business shuru karne ke liye coding, design ya logistics ka experience nahi chahiye. Poora setup humari taraf se hota hai.</p>
+    </div>
+    <div class="grid">
+      <div class="card">
+        <div class="price-corner">SETUP</div>
+        <div class="icon">🛍️</div>
+        <h3>Store Setup</h3>
+        <p>Aapka apna online store — design, product listing, checkout flow, sab humari taraf se ready hota hai.</p>
+      </div>
+      <div class="card">
+        <div class="icon">🚚</div>
+        <h3>Delivery Partner Integration</h3>
+        <p>Delivery partner store se seedha connect hota hai — order se lekar tracking tak sab automatic.</p>
+      </div>
+      <div class="card">
+        <div class="icon">📦</div>
+        <h3>Product Sourcing</h3>
+        <p>Trending aur profitable products chun kar store mein add kiye jaate hain — research hum karte hain.</p>
+      </div>
+      <div class="card">
+        <div class="icon">💳</div>
+        <h3>Payment Gateway</h3>
+        <p>UPI, cards, COD — sab payment options store mein set hote hain, launch se pehle hi.</p>
+      </div>
+      <div class="card">
+        <div class="icon">💬</div>
+        <h3>WhatsApp Support</h3>
+        <p>Setup ke baad bhi sawaal ho to seedha WhatsApp par baat — koi ticket system nahi.</p>
+      </div>
+      <div class="card">
+        <div class="icon">📊</div>
+        <h3>Proof, Copy Nahi</h3>
+        <p>Hum wahi setup dete hain jo khud use karke Shopmingo.in par chala rahe hain.</p>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding-top:0;">
+    <div class="section-head">
+      <span class="kicker">Live Proof</span>
+      <h2>Yeh sirf sales pitch nahi — Shopmingo.in khud dekh lo</h2>
+      <p>Jo setup hum bechte hain, wahi setup humara apna store <b style="color:var(--cream)">Shopmingo.in</b> use karta hai — aur ussi se hum khud 6-figure monthly profit run kar rahe hain.</p>
+    </div>
+    <div class="card" style="max-width:640px; padding:0; overflow:hidden;">
+      <div style="background:#12152e; padding:12px 16px; display:flex; align-items:center; gap:8px; border-bottom:1px solid var(--line);">
+        <span style="width:10px;height:10px;border-radius:50%;background:var(--bazaar-red);"></span>
+        <span style="width:10px;height:10px;border-radius:50%;background:var(--marigold);"></span>
+        <span style="width:10px;height:10px;border-radius:50%;background:var(--leaf);"></span>
+        <span class="mono" style="margin-left:8px; font-size:12px; color:var(--slate);">shopmingo.in</span>
+      </div>
+      <div style="padding:24px;">
+        <h3 style="font-family:'Baloo 2',sans-serif; font-size:19px; margin-bottom:8px;">Apna Live Dropshipping Store</h3>
+        <p style="font-size:13.5px; color:var(--slate); line-height:1.65; margin-bottom:18px;">Home essentials, personal care aur trending gadgets bechne wala real store — poora setup wahi model jo hum aapke liye banate hain.</p>
+        <a class="header-btn" style="border-color:var(--marigold); color:var(--marigold-light);" href="https://shopmingo.in" target="_blank" rel="noopener">Shopmingo.in Visit Karein →</a>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding-top:0;">
+    <div class="section-head">
+      <span class="kicker">Clients Bolte Hain</span>
+      <h2>Bharosa aise banta hai</h2>
+    </div>
+    <div class="testi-grid">
+      <div class="testi">
+        <p>"Store aur delivery partner dono ready mile, mujhe bas product sochna tha."</p>
+        <div class="testi-who"><div class="av">R</div><div><b>Rahul Mehta</b><span>Dropship Client, Surat</span></div></div>
+      </div>
+      <div class="testi">
+        <p>"Setup ke baad WhatsApp pe hi doubt clear ho jaate hain, alag se support khojna nahi padta."</p>
+        <div class="testi-who"><div class="av">P</div><div><b>Priya Sharma</b><span>Dropship Client, Jaipur</span></div></div>
+      </div>
+      <div class="testi">
+        <p>"Shopmingo.in dekh ke hi trust hua ki model kaam karta hai, apna store bhi shuru kar diya."</p>
+        <div class="testi-who"><div class="av">A</div><div><b>Amit Verma</b><span>Dropship Client, Indore</span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding-top:0;">
+    <div class="final-cta">
+      <span class="kicker" style="justify-content:center; display:flex;">Ready ho?</span>
+      <h2>Aaj hi judein, kal ka rate miss mat karein</h2>
+      <p>Community free hai. Ek click mein WhatsApp par judein aur roz ke wholesale deals paayein.</p>
+      <a class="cta-btn" href="https://chat.whatsapp.com/KBE1necLymIKDOo41Z1j7y" target="_blank" rel="noopener">
+        💬 Abhi Community Join Karein
       </a>
-      <a href="#features" class="btn-secondary">और जानें ↓</a>
     </div>
-  </div>
-</section>
-
-<!-- STATS STRIP -->
-<div class="stats">
-  <div class="stat">
-    <div class="stat-num">6,846+</div>
-    <div class="stat-label">Active Subscribers</div>
-  </div>
-  <div class="stat">
-    <div class="stat-num">10+</div>
-    <div class="stat-label">Years Experience</div>
-  </div>
-  <div class="stat">
-    <div class="stat-num">SEBI</div>
-    <div class="stat-label">Registered Experts</div>
-  </div>
-  <div class="stat">
-    <div class="stat-num">100%</div>
-    <div class="stat-label">Free Forever</div>
-  </div>
+  </section>
 </div>
 
-<!-- FEATURES -->
-<section id="features">
-  <div class="section-label">What you get</div>
-  <div class="section-title">हर दिन — बिलकुल FREE</div>
-  <div class="section-sub">Join thousands of traders who get accurate calls every market day — without paying a single rupee.</div>
-
-  <div class="features-grid">
-    <div class="feature-card">
-      <div class="feature-icon">📊</div>
-      <h3>Daily Trading Calls</h3>
-      <p>Fresh buy/sell signals every morning before market opens — entry, target & stop-loss clearly mentioned.</p>
-    </div>
-    <div class="feature-card">
-      <div class="feature-icon">🎯</div>
-      <h3>High-Accuracy Picks</h3>
-      <p>Calls backed by technical analysis, chart patterns, and 10+ years of live market experience.</p>
-    </div>
-    <div class="feature-card">
-      <div class="feature-icon">⚡</div>
-      <h3>Real-Time Alerts</h3>
-      <p>Intraday updates when to hold, book profit or cut loss — right on Telegram, no delay.</p>
-    </div>
-    <div class="feature-card">
-      <div class="feature-icon">🛡️</div>
-      <h3>SEBI Backed Advice</h3>
-      <p>All experts are SEBI registered — your investments stay protected with compliant, ethical guidance.</p>
-    </div>
-    <div class="feature-card">
-      <div class="feature-icon">📈</div>
-      <h3>Market Education</h3>
-      <p>Learn charts, indicators, and market psychology alongside live calls — grow as a trader.</p>
-    </div>
-    <div class="feature-card">
-      <div class="feature-icon">🤝</div>
-      <h3>Community of Traders</h3>
-      <p>6,800+ members discussing calls, sharing results, and helping each other grow their wealth.</p>
-    </div>
-  </div>
-</section>
-
-<!-- MARKETS COVERED -->
-<section class="markets-section">
-  <div class="section-label">Segments Covered</div>
-  <div class="section-title">हर Market में Expert Calls</div>
-  <div class="section-sub">Whether you trade futures, options, commodities or equities — we've got you covered.</div>
-
-  <div class="markets-grid">
-    <div class="market-chip">📈 Nifty 50</div>
-    <div class="market-chip">🏦 Bank Nifty</div>
-    <div class="market-chip">🥇 Gold MCX</div>
-    <div class="market-chip">🛢️ Crude Oil</div>
-    <div class="market-chip">📦 Equities</div>
-    <div class="market-chip">🌾 Commodities</div>
-  </div>
-</section>
-
-<!-- SAMPLE CALLS -->
-<section class="live-calls">
-  <div class="section-label">Recent Results</div>
-  <div class="section-title">Results जो खुद बोलते हैं</div>
-  <div class="section-sub">A snapshot of recent free calls — proof that results matter more than promises.</div>
-
-  <div class="calls-grid">
-    <div class="call-card">
-      <div class="call-instrument">NIFTY 24800 CE</div>
-      <div class="call-direction">▲ BUY CALL</div>
-      <div class="call-return">+₹4,200</div>
-      <div class="call-meta">Target Hit ✅ &nbsp;|&nbsp; 26 Jun</div>
-    </div>
-    <div class="call-card">
-      <div class="call-instrument">BANK NIFTY</div>
-      <div class="call-direction">▲ BUY INTRADAY</div>
-      <div class="call-return">+₹6,800</div>
-      <div class="call-meta">Target Hit ✅ &nbsp;|&nbsp; 25 Jun</div>
-    </div>
-    <div class="call-card">
-      <div class="call-instrument">GOLD MCX</div>
-      <div class="call-direction">▲ BUY</div>
-      <div class="call-return">+₹2,950</div>
-      <div class="call-meta">Target Hit ✅ &nbsp;|&nbsp; 24 Jun</div>
-    </div>
-    <div class="call-card">
-      <div class="call-instrument">RELIANCE</div>
-      <div class="call-direction">▲ BUY POSITIONAL</div>
-      <div class="call-return">+₹3,400</div>
-      <div class="call-meta">Target Hit ✅ &nbsp;|&nbsp; 23 Jun</div>
-    </div>
-  </div>
-</section>
-
-<!-- TRUST / SEBI -->
-<section>
-  <div class="section-label">Trust & Compliance</div>
-  <div class="section-title">100% Trusted & Verified</div>
-  <div class="section-sub"></div>
-
-  <div class="sebi-banner">
-    <div class="sebi-icon">🛡️</div>
-    <div class="sebi-text">
-      <h3>SEBI Registered Research Analysts</h3>
-      <p>All trading recommendations on this channel are given by SEBI registered experts with 10+ years of live market experience. We believe in transparency — our track record speaks for itself.</p>
-    </div>
-  </div>
-</section>
-
-<!-- TESTIMONIALS -->
-<section style="background:var(--navy);padding-top:70px;padding-bottom:70px;">
-  <div class="section-label">Members Say</div>
-  <div class="section-title">हमारे Members की बात</div>
-  <div class="section-sub" style="margin-bottom:40px;">Real feedback from real traders in our community.</div>
-
-  <div class="trust-row">
-    <div class="trust-card">
-      <div class="stars">★★★★★</div>
-      <p>"Radheshayam sir ke calls se maine ek mahine mein 40,000+ ka profit banaya. Bilkul free aur accurate calls!"</p>
-      <div class="trust-name">Rahul S., Delhi</div>
-    </div>
-    <div class="trust-card">
-      <div class="stars">★★★★★</div>
-      <p>"Bank Nifty calls bahut accurate hote hain. Entry, target, SL — sab clearly dete hain. Must join!"</p>
-      <div class="trust-name">Priya M., Mumbai</div>
-    </div>
-    <div class="trust-card">
-      <div class="stars">★★★★★</div>
-      <p>"6 mahine se member hoon. Results khud bol dete hain. Best FREE trading channel on Telegram."</p>
-      <div class="trust-name">Suresh K., Jaipur</div>
-    </div>
-  </div>
-</section>
-
-<!-- CTA BOTTOM -->
-<section class="cta-section">
-  <h2>Abhi Join Karo —<br><span>Bilkul FREE Hai</span></h2>
-  <p>6,846+ traders already growing their wealth every day.<br>Don't miss tomorrow's calls — join in 10 seconds.</p>
-  <a href="https://t.me/+W5Zfcvb5ud03MzVl" class="btn-primary" target="_blank" style="font-size:18px;padding:18px 40px;display:inline-flex;gap:12px;align-items:center;">
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12L8.32 13.617l-2.96-.924c-.643-.204-.657-.643.136-.953l11.57-4.461c.537-.194 1.006.131.828.942z"/></svg>
-    Telegram Channel Join Karo
-  </a>
-</section>
-
-<!-- FOOTER -->
 <footer>
-  <p style="margin-bottom:8px;">© 2026 <strong style="color:#D4AF37;">TREAD WITH RADHESHAYAM™</strong> — All rights reserved.</p>
-  <p>Investment in securities market is subject to market risks. Please read all related documents carefully before investing.</p>
-  <p style="margin-top:8px;">
-    <a href="https://t.me/+W5Zfcvb5ud03MzVl" target="_blank">Join on Telegram</a>
-  </p>
+  <div class="wrap">Retailers ka Bazaar — Ek independent retailer community. WhatsApp ki official product nahi hai.</div>
 </footer>
 
 </body>
