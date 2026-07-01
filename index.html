@@ -305,6 +305,30 @@
   .statbar b{display:block; font-family:'JetBrains Mono', monospace; font-size:30px; color:var(--marigold-light);}
   .statbar span{font-size:12px; color:var(--slate); text-transform:uppercase; letter-spacing:0.5px;}
 
+  /* ---- Floating WhatsApp support button ---- */
+  .wa-float{
+    position:fixed;
+    right:24px; bottom:24px;
+    z-index:50;
+    display:flex; align-items:center; gap:10px;
+    background:var(--leaf);
+    color:#fff;
+    font-weight:700;
+    font-size:14px;
+    padding:14px 20px;
+    border-radius:100px;
+    text-decoration:none;
+    box-shadow:0 12px 30px rgba(31,170,89,0.45);
+    transition:transform .18s ease, box-shadow .18s ease;
+  }
+  .wa-float:hover{transform:translateY(-3px); box-shadow:0 16px 36px rgba(31,170,89,0.55);}
+  .wa-float .icon-circle{
+    width:26px; height:26px; border-radius:50%;
+    background:rgba(255,255,255,0.2);
+    display:flex; align-items:center; justify-content:center;
+    font-size:14px;
+  }
+
   /* ---- Final CTA ---- */
   .final-cta{
     text-align:center;
@@ -324,6 +348,7 @@
   .final-cta h2{position:relative;}
   .final-cta p{position:relative; color:var(--slate); margin:14px 0 30px; max-width:440px; margin-left:auto; margin-right:auto;}
   .final-cta .cta-btn{position:relative; font-size:18px; padding:18px 36px;}
+  .final-cta .cta-row{justify-content:center; position:relative;}
 
   footer{
     position:relative; z-index:2;
@@ -341,6 +366,7 @@
     .statbar .s:nth-child(2){border-right:none;}
     .statbar .s:nth-child(3){border-top:1px solid var(--line); padding-top:24px;}
     .statbar .s:nth-child(4){border-top:1px solid var(--line); padding-top:24px;}
+    .wa-float{right:16px; bottom:16px; padding:12px 16px; font-size:13px;}
   }
 
   @media (prefers-reduced-motion: reduce){
@@ -354,15 +380,19 @@
 
 <div class="bg-noise"></div>
 
+<a class="wa-float" href="https://wa.me/918690989482" target="_blank" rel="noopener" aria-label="WhatsApp Support">
+  <span class="icon-circle">💬</span> WhatsApp Support
+</a>
+
 <div class="ticker">
   <div class="ticker-track">
     <span>🚀 Live Proof: Shopmingo.in — apna hi chalta hua store</span>
-    <span>📦 Delivery partner integration humari taraf se</span>
-    <span>🛠️ Store se lekar checkout tak — sab setup hum karte hain</span>
+    <span>📦 Meta Ads aur supplier sourcing humari taraf se</span>
+    <span>🛠️ Store se lekar payout tak — sab setup hum karte hain</span>
     <span>💬 Client stores WhatsApp pe hi track karo</span>
     <span>🚀 Live Proof: Shopmingo.in — apna hi chalta hua store</span>
-    <span>📦 Delivery partner integration humari taraf se</span>
-    <span>🛠️ Store se lekar checkout tak — sab setup hum karte hain</span>
+    <span>📦 Meta Ads aur supplier sourcing humari taraf se</span>
+    <span>🛠️ Store se lekar payout tak — sab setup hum karte hain</span>
     <span>💬 Client stores WhatsApp pe hi track karo</span>
   </div>
 </div>
@@ -379,8 +409,8 @@
   <section class="hero" style="padding-bottom:0;">
     <div>
       <div class="eyebrow"><span class="dot"></span> Done-For-You Dropshipping Setup</div>
-      <h1>Apna <span class="hl">online store</span> ready, delivery partner <span class="hl2">integrated</span> — sab kuch hum karke denge.</h1>
-      <p class="sub">Store banane se lekar delivery partner integration tak — poora dropshipping business setup hum khud karte hain. Aapko sirf orders aur profit dekhna hai. Live proof? Humara apna store <b style="color:var(--cream)">Shopmingo.in</b>, jisse hum khud 6-figure profit run kar rahe hain.</p>
+      <h1>Apna <span class="hl">online store</span> ready, delivery partner integration, payment gateway, dropshipping supplier, Meta Ads — <span class="hl2">sab kuch</span> hum karke denge.</h1>
+      <p class="sub">Store banane se lekar Paisa aapke bank account me aane tak — poora dropshipping business setup hum khud karte hain. Aapko sirf orders aur profit dekhna hai. Live proof? Humara apna store <b style="color:var(--cream)">Shopmingo.in</b>, jisse hum khud 6-figure profit run kar rahe hain.</p>
 
       <div class="cta-row">
         <a class="cta-btn" href="https://chat.whatsapp.com/KBE1necLymIKDOo41Z1j7y" target="_blank" rel="noopener">
@@ -392,7 +422,6 @@
       <div class="hero-stats">
         <div class="stat"><b>6-Figure</b><span>Monthly Profit (Shopmingo.in)</span></div>
         <div class="stat"><b>100%</b><span>Done-For-You Setup</span></div>
-        <div class="stat"><b>1</b><span>Integrated Delivery Partner</span></div>
       </div>
     </div>
 
@@ -452,9 +481,9 @@
         <p>UPI, cards, COD — sab payment options store mein set hote hain, launch se pehle hi.</p>
       </div>
       <div class="card">
-        <div class="icon">💬</div>
-        <h3>WhatsApp Support</h3>
-        <p>Setup ke baad bhi sawaal ho to seedha WhatsApp par baat — koi ticket system nahi.</p>
+        <div class="icon">📢</div>
+        <h3>Meta Ads Setup</h3>
+        <p>Facebook aur Instagram par targeted ads campaign hum khud set karte hain, taaki traffic din 1 se aaye.</p>
       </div>
       <div class="card">
         <div class="icon">📊</div>
@@ -511,9 +540,14 @@
       <span class="kicker" style="justify-content:center; display:flex;">Ready ho?</span>
       <h2>Aaj hi judein, kal ka rate miss mat karein</h2>
       <p>Community free hai. Ek click mein WhatsApp par judein aur roz ke wholesale deals paayein.</p>
-      <a class="cta-btn" href="https://chat.whatsapp.com/KBE1necLymIKDOo41Z1j7y" target="_blank" rel="noopener">
-        💬 Abhi Community Join Karein
-      </a>
+      <div class="cta-row">
+        <a class="cta-btn" href="https://chat.whatsapp.com/KBE1necLymIKDOo41Z1j7y" target="_blank" rel="noopener">
+          💬 Abhi Community Join Karein
+        </a>
+        <a class="cta-btn" style="background:transparent; border:1.5px solid var(--marigold); box-shadow:none; color:var(--marigold-light);" href="https://wa.me/918690989482" target="_blank" rel="noopener">
+          💬 WhatsApp Support
+        </a>
+      </div>
     </div>
   </section>
 </div>
